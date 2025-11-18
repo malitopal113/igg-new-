@@ -1,4 +1,6 @@
 "use client";
+import type { ReactNode } from "react";
+
 
 import React, { useEffect, useRef, useState } from "react";
 
@@ -6,7 +8,7 @@ interface HomePageItemProps {
   image: string;
   titleLeft: string;
   titleRight: string;
-  desc?: string;
+  desc?: ReactNode;
   scale?: number; // initial scale (0..1)
   titleTranslateX?: number; // percent (şu an sadece ince ayar için)
   pinDurationMultiplier?: number;

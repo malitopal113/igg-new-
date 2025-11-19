@@ -207,12 +207,10 @@ export default function HomePageItem({
               style={{
                 ...leftStyle,
                 textShadow: `
-                  -1px -1px 2px rgba(0,0,0,0.6),
-                  1px -1px 2px rgba(0,0,0,0.6),
-                  -1px  1px 2px rgba(0,0,0,0.6),
-                  1px  1px 2px rgba(0,0,0,0.6),
-                  0px  4px 14px rgba(0,0,0,0.5)
-                `,
+  0 0 6px rgba(0,0,0,0.8),
+  0 0 12px rgba(0,0,0,0.7),
+  0 0 18px rgba(0,0,0,0.6)
+`,
               }}
             >
               {titleLeft}
@@ -229,12 +227,10 @@ export default function HomePageItem({
               style={{
                 ...rightStyle,
                 textShadow: `
-                  -1px -1px 2px rgba(0,0,0,0.6),
-                  1px -1px 2px rgba(0,0,0,0.6),
-                  -1px  1px 2px rgba(0,0,0,0.6),
-                  1px  1px 2px rgba(0,0,0,0.6),
-                  0px  4px 14px rgba(0,0,0,0.5)
-                `,
+  0 0 6px rgba(0,0,0,0.8),
+  0 0 12px rgba(0,0,0,0.7),
+  0 0 18px rgba(0,0,0,0.6)
+`,
               }}
             >
               {titleRight}

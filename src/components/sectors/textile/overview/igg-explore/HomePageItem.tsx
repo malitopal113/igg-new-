@@ -20,6 +20,7 @@ interface HomePageItemProps {
   imageOffsetY?: number;      // px
   leftFinalOffset?: string;   // varsayılan "51%"
   rightFinalOffset?: string;  // varsayılan "51%"
+  className?: string;
 }
 
 const clamp = (v: number, min = 0, max = 1) => Math.max(min, Math.min(max, v));
@@ -175,17 +176,44 @@ export default function HomePageItem({
                   ...imageStyle,
                 }}
               />
+              {/* GRADIENT OVERLAY */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  transform: "scale(1.6)",   // 👈 gradient'i genişletiyoruz
+                  transformOrigin: "center",
+                  background: `
+                    radial-gradient(
+                      ellipse at center,
+                      rgba(0,0,0,0.0) 40%,
+                      rgba(0,0,0,0.28) 60%,
+                      rgba(0,0,0,0.55) 78%,
+                      rgba(0,0,0,0.75) 100%
+                    )
+                  `
+                }}
+              />
+
             </div>
           </div>
 
           {/* LEFT TITLE – sağ kenar orta hatta sabit */}
           <div
-            className="absolute top-1/2 -translate-y-1/2 pointer-events-none font-extrabold"
-            style={{ right: leftFinalOffset , fontFamily: '"Helvetica Neue", Arial, sans-serif'}}
+            className="absolute top-1/2 -translate-y-[75%] pointer-events-none  "
+            style={{ right: leftFinalOffset , fontFamily: "var(--font-Work_Sans)", fontWeight: 700, letterSpacing: "0.09em"}}
           >
             <div
-              className="text-white font-light leading-none text-right font-extrabold"
-              style={leftStyle}
+              className="text-white font-normal leading-none text-right "
+              style={{
+                ...leftStyle,
+                textShadow: `
+                  -1px -1px 2px rgba(0,0,0,0.6),
+                  1px -1px 2px rgba(0,0,0,0.6),
+                  -1px  1px 2px rgba(0,0,0,0.6),
+                  1px  1px 2px rgba(0,0,0,0.6),
+                  0px  4px 14px rgba(0,0,0,0.5)
+                `,
+              }}
             >
               {titleLeft}
             </div>
@@ -193,12 +221,21 @@ export default function HomePageItem({
 
           {/* RIGHT TITLE – sol kenar orta hatta sabit */}
           <div
-            className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-            style={{ left: rightFinalOffset, fontFamily: '"Helvetica Neue", Arial, sans-serif' }}
+            className="absolute top-1/2 -translate-y-[75%] pointer-events-none"
+            style={{ left: rightFinalOffset, fontFamily: "var(--font-Work_Sans)", fontWeight: 700, letterSpacing: "0.09m" }}
           >
             <div
-              className="text-white font-light leading-none text-left"
-              style={rightStyle}
+              className="text-white font-normal leading-none text-left"
+              style={{
+                ...rightStyle,
+                textShadow: `
+                  -1px -1px 2px rgba(0,0,0,0.6),
+                  1px -1px 2px rgba(0,0,0,0.6),
+                  -1px  1px 2px rgba(0,0,0,0.6),
+                  1px  1px 2px rgba(0,0,0,0.6),
+                  0px  4px 14px rgba(0,0,0,0.5)
+                `,
+              }}
             >
               {titleRight}
             </div>

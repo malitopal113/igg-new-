@@ -188,6 +188,7 @@ export default function Page() {
             titleTranslateX={44}
             pinDurationMultiplier={2.8} // mesela 2.0 veya 2.2 deneyebilirsin
             imageTargetScale={1.08}
+            className="mb-[200px]"
           />
 
       

@@ -9,7 +9,7 @@ export default function Page() {
         <MainIntro  />
         <HomePageItem
           image="/assets/sectors/textile/explore/1.png"
-          titleLeft="OUR"
+          titleLeft="YOUR"
           titleRight="CAPACITY"
           desc={
             <p

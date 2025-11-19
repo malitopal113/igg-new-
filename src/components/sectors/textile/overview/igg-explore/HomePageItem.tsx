@@ -246,15 +246,15 @@ export default function HomePageItem({
        className="absolute left-1/2 transform -translate-x-1/2  "
        style={{
        bottom: "0.00rem",
-       paddingTop: "24px",
-       paddingBottom: "12px",
+       paddingTop: "48px",
+       paddingBottom: "5px",
        width: "min(1000px, 85vw)",
        textAlign: "center",
        ...descStyle,
       }}
       >
       {desc}
-     </div>
+      </div>
     </section>
   );
 }

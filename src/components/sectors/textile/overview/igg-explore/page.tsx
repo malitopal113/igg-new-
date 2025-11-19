@@ -170,8 +170,8 @@ export default function Page() {
             leftFinalOffset="50%"
             rightFinalOffset="54%"
           />
-
-          <HomePageItem
+          <div className="pb-[200px] bg-[#000]">
+                      <HomePageItem
             image="/assets/sectors/textile/explore/5.png"
             titleLeft="BRANDING"
             titleRight="SERVICES"
@@ -188,8 +188,11 @@ export default function Page() {
             titleTranslateX={44}
             pinDurationMultiplier={2.8} // mesela 2.0 veya 2.2 deneyebilirsin
             imageTargetScale={1.08}
-            className="mb-[200px]"
+            
           />
+  
+          </div>
+
 
       
         

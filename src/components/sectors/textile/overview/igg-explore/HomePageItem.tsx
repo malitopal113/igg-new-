@@ -20,7 +20,7 @@ interface HomePageItemProps {
   imageOffsetY?: number;      // px
   leftFinalOffset?: string;   // varsayılan "51%"
   rightFinalOffset?: string;  // varsayılan "51%"
-  className?: string;
+  
 }
 
 const clamp = (v: number, min = 0, max = 1) => Math.max(min, Math.min(max, v));

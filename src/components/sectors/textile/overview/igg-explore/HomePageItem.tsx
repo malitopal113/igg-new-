@@ -245,7 +245,7 @@ export default function HomePageItem({
       <div
        className="absolute left-1/2 transform -translate-x-1/2"
        style={{
-       bottom: "0.5rem",
+       bottom: "-1.5rem",
        width: "min(1000px, 85vw)",
        textAlign: "center",
        ...descStyle,

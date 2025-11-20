@@ -243,7 +243,7 @@ export default function HomePageItem({
       {/* DESCRIPTION + MORE (resmin altında) */}
       {/* DESCRIPTION – resmin altında, sticky sahnenin içinde */}
       <div
-       className="absolute left-1/2 transform -translate-x-1/2  "
+       className="absolute left-1/2 transform -translate-x-1/2 mt-16 md:mt-20 "
        style={{
        bottom: "0.00rem",
        paddingTop: "48px",

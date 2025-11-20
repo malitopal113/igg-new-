@@ -134,14 +134,14 @@ export default function HomePageItem({
     letterSpacing: "-0.02em",
   };
 
-  /** DESCRIPTION (resmin altında, sticky içinde) */
+  /** DESCRIPTION (resmin altında, sticky içinde, alttan gelerek) */
   const descThreshold = 0.55;
   const descProgress = clamp((eased - descThreshold) / (1 - descThreshold));
   const descAnimated = easeOutCubic(descProgress);
 
   const descStyle: React.CSSProperties = {
     opacity: descAnimated,
-    transform: `translateY(${(1 - descAnimated) * 24}px)`, // alttan yukarı 24px kayarak gelsin
+    transform: `translateY(${(1 - descAnimated) * 80}px)`, // 👈 daha belirgin alttan gelme
     transition: "opacity 0s, transform 0s",
   };
 
@@ -164,7 +164,7 @@ export default function HomePageItem({
               style={{
                 width: "900px",
                 maxWidth: "82vw",
-                maxHeight: "60vh",
+                maxHeight: "52vh", // biraz küçülttük ki description için alan kalsın
               }}
             >
               <img
@@ -200,9 +200,10 @@ export default function HomePageItem({
 
           {/* LEFT TITLE */}
           <div
-            className="absolute top-1/2 -translate-y-[75%] pointer-events-none"
+            className="absolute top-1/2 -translate-y-[95%] pointer-events-none"
             style={{
               right: leftFinalOffset,
+              top: `calc(40% + ${offsetY}px)`, 
               fontFamily: "var(--font-Work_Sans)",
               fontWeight: 700,
               letterSpacing: "0.09em",
@@ -225,12 +226,13 @@ export default function HomePageItem({
 
           {/* RIGHT TITLE */}
           <div
-            className="absolute top-1/2 -translate-y-[75%] pointer-events-none"
+            className="absolute top-1/2 -translate-y-[95%] pointer-events-none"
             style={{
               left: rightFinalOffset,
+              top: `calc(40% + ${offsetY}px)`,
               fontFamily: "var(--font-Work_Sans)",
               fontWeight: 700,
-              letterSpacing: "0.09em", // burada da em yaptım
+              letterSpacing: "0.09em",
             }}
           >
             <div
@@ -248,17 +250,14 @@ export default function HomePageItem({
             </div>
           </div>
 
-          {/* ✅ DESCRIPTION – resmin ALTINDA, sticky alanın içinde SABİT final noktası */}
+          {/* ✅ DESCRIPTION – resmin ALTINDA, normal flow + alttan giriş */}
           <div
-            className="absolute left-1/2 -translate-x-1/2 px-6"
-            style={{
-              top: "70%", // fotoğrafın altı; istersen 68–72% arası oynayabilirsin
-              width: "min(1000px, 85vw)",
-              textAlign: "center",
-              ...descStyle,
-            }}
+            className="mt-10 md:mt-14 flex justify-center"
+            style={descStyle}
           >
-            {desc}
+            <div className="w-[min(1000px,85vw)] text-center px-6">
+              {desc}
+            </div>
           </div>
         </div>
       </div>

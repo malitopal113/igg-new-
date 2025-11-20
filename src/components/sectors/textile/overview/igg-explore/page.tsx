@@ -13,7 +13,7 @@ export default function Page() {
           titleRight="CAPACITY"
           desc={
             <p
-              className="leading-[1.45] text-white font-light tracking-[-0.01em] text-[18px] pt-35 mt-25"
+              className="leading-[1.45] text-white font-light tracking-[-0.01em] text-[18px] "
               style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif' }}
             >
               We provide quality well understood service to our customers with our wide range 

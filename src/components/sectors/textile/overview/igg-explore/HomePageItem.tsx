@@ -140,7 +140,7 @@ export default function HomePageItem({
 
   const descStyle: React.CSSProperties = {
     opacity: descAnimated,
-    transform: `translateY(${(1 - descAnimated) * 40}px)`,
+    transform: `translateY(${(1 - descAnimated) * 24}px)`,
     transition: "opacity 0s, transform 0s",
   };
 

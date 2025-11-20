@@ -1,7 +1,6 @@
 "use client";
 import type { ReactNode } from "react";
 
-
 import React, { useEffect, useRef, useState } from "react";
 
 interface HomePageItemProps {
@@ -20,10 +19,10 @@ interface HomePageItemProps {
   imageOffsetY?: number;      // px
   leftFinalOffset?: string;   // varsayılan "51%"
   rightFinalOffset?: string;  // varsayılan "51%"
-  
 }
 
-const clamp = (v: number, min = 0, max = 1) => Math.max(min, Math.min(max, v));
+const clamp = (v: number, min = 0, max = 1) =>
+  Math.max(min, Math.min(max, v));
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 export default function HomePageItem({
@@ -76,7 +75,9 @@ export default function HomePageItem({
     const scrolled = scrollY - totalRangeStart;
     const rawProgress = clamp(scrolled / totalRange);
 
-    setProgress((prev) => (Math.abs(prev - rawProgress) > 0.001 ? rawProgress : prev));
+    setProgress((prev) =>
+      Math.abs(prev - rawProgress) > 0.001 ? rawProgress : prev
+    );
 
     rafRef.current = requestAnimationFrame(tick);
   };
@@ -96,7 +97,9 @@ export default function HomePageItem({
   const growthEnd = imageGrowthEnd ?? 0.9;
   const growthCurve = imageGrowthCurve ?? 1.25;
 
-  let imgT = clamp((eased - growthStart) / Math.max(growthEnd - growthStart, 0.0001));
+  let imgT = clamp(
+    (eased - growthStart) / Math.max(growthEnd - growthStart, 0.0001)
+  );
   if (growthCurve !== 1) {
     imgT = Math.pow(imgT, growthCurve);
   }
@@ -111,8 +114,6 @@ export default function HomePageItem({
   };
 
   /** BAŞLIKLAR (TRANSFER / SERVICES) */
-  // Başlangıçta: ±100% → ekranın en dışından
-  // Finalde: 0% → orta hatta birleşme
   const startOffset = 140; // kenarlardan başlasın
   const leftX = -startOffset * (1 - eased);
   const rightX = startOffset * (1 - eased);
@@ -133,14 +134,14 @@ export default function HomePageItem({
     letterSpacing: "-0.02em",
   };
 
-  /** DESCRIPTION (resmin altında, sticky dışı) */
+  /** DESCRIPTION (resmin altında, sticky içinde) */
   const descThreshold = 0.55;
   const descProgress = clamp((eased - descThreshold) / (1 - descThreshold));
   const descAnimated = easeOutCubic(descProgress);
 
   const descStyle: React.CSSProperties = {
     opacity: descAnimated,
-    transform: `translateY(${(1 - descAnimated) * 1}px)`,
+    transform: `translateY(${(1 - descAnimated) * 24}px)`, // alttan yukarı 24px kayarak gelsin
     transition: "opacity 0s, transform 0s",
   };
 
@@ -181,7 +182,7 @@ export default function HomePageItem({
               <div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                  transform: "scale(1.6)",   // 👈 gradient'i genişletiyoruz
+                  transform: "scale(1.6)",
                   transformOrigin: "center",
                   background: `
                     radial-gradient(
@@ -191,70 +192,75 @@ export default function HomePageItem({
                       rgba(0,0,0,0.55) 78%,
                       rgba(0,0,0,0.75) 100%
                     )
-                  `
+                  `,
                 }}
               />
-
             </div>
           </div>
 
-          {/* LEFT TITLE – sağ kenar orta hatta sabit */}
+          {/* LEFT TITLE */}
           <div
-            className="absolute top-1/2 -translate-y-[75%] pointer-events-none  "
-            style={{ right: leftFinalOffset , fontFamily: "var(--font-Work_Sans)", fontWeight: 700, letterSpacing: "0.09em"}}
+            className="absolute top-1/2 -translate-y-[75%] pointer-events-none"
+            style={{
+              right: leftFinalOffset,
+              fontFamily: "var(--font-Work_Sans)",
+              fontWeight: 700,
+              letterSpacing: "0.09em",
+            }}
           >
             <div
-              className="text-white font-normal leading-none text-right "
+              className="text-white font-normal leading-none text-right"
               style={{
                 ...leftStyle,
                 textShadow: `
-  0 0 6px rgba(0,0,0,0.8),
-  0 0 12px rgba(0,0,0,0.7),
-  0 0 18px rgba(0,0,0,0.6)
-`,
+                  0 0 6px rgba(0,0,0,0.8),
+                  0 0 12px rgba(0,0,0,0.7),
+                  0 0 18px rgba(0,0,0,0.6)
+                `,
               }}
             >
               {titleLeft}
             </div>
           </div>
 
-          {/* RIGHT TITLE – sol kenar orta hatta sabit */}
+          {/* RIGHT TITLE */}
           <div
             className="absolute top-1/2 -translate-y-[75%] pointer-events-none"
-            style={{ left: rightFinalOffset, fontFamily: "var(--font-Work_Sans)", fontWeight: 700, letterSpacing: "0.09m" }}
+            style={{
+              left: rightFinalOffset,
+              fontFamily: "var(--font-Work_Sans)",
+              fontWeight: 700,
+              letterSpacing: "0.09em", // burada da em yaptım
+            }}
           >
             <div
               className="text-white font-normal leading-none text-left"
               style={{
                 ...rightStyle,
                 textShadow: `
-  0 0 6px rgba(0,0,0,0.8),
-  0 0 12px rgba(0,0,0,0.7),
-  0 0 18px rgba(0,0,0,0.6)
-`,
+                  0 0 6px rgba(0,0,0,0.8),
+                  0 0 12px rgba(0,0,0,0.7),
+                  0 0 18px rgba(0,0,0,0.6)
+                `,
               }}
             >
               {titleRight}
             </div>
           </div>
 
+          {/* ✅ DESCRIPTION – resmin ALTINDA, sticky alanın içinde SABİT final noktası */}
+          <div
+            className="absolute left-1/2 -translate-x-1/2 px-6"
+            style={{
+              top: "70%", // fotoğrafın altı; istersen 68–72% arası oynayabilirsin
+              width: "min(1000px, 85vw)",
+              textAlign: "center",
+              ...descStyle,
+            }}
+          >
+            {desc}
+          </div>
         </div>
-      </div>
-
-      {/* DESCRIPTION + MORE (resmin altında) */}
-      {/* DESCRIPTION – resmin altında, sticky sahnenin içinde */}
-      <div
-       className="absolute left-1/2 transform -translate-x-1/2 mt-20 md:mt-24 "
-       style={{
-       bottom: "0.00rem",
-       paddingTop: "48px",
-       paddingBottom: "5px",
-       width: "min(1000px, 85vw)",
-       textAlign: "center",
-       ...descStyle,
-      }}
-      >
-      {desc}
       </div>
     </section>
   );

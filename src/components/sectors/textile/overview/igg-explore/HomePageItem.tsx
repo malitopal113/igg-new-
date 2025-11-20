@@ -140,7 +140,7 @@ export default function HomePageItem({
 
   const descStyle: React.CSSProperties = {
     opacity: descAnimated,
-    transform: `translateY(${(1 - descAnimated) * 5}px)`,
+    transform: `translateY(${(1 - descAnimated) * 1}px)`,
     transition: "opacity 0s, transform 0s",
   };
 
@@ -243,7 +243,7 @@ export default function HomePageItem({
       {/* DESCRIPTION + MORE (resmin altında) */}
       {/* DESCRIPTION – resmin altında, sticky sahnenin içinde */}
       <div
-       className="absolute left-1/2 transform -translate-x-1/2 mt-16 md:mt-20 "
+       className="absolute left-1/2 transform -translate-x-1/2 mt-20 md:mt-25 "
        style={{
        bottom: "0.00rem",
        paddingTop: "48px",

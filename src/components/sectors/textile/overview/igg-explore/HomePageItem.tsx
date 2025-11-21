@@ -116,7 +116,7 @@ export default function HomePageItem({
   };
 
   /** BAŞLIKLAR (TRANSFER / SERVICES) */
-  const startOffset = 140; // kenarlardan başlasın
+  const startOffset = 170; // kenarlardan başlasın
   const leftX = -startOffset * (1 - eased);
   const rightX = startOffset * (1 - eased);
 
@@ -259,7 +259,7 @@ export default function HomePageItem({
             style={{
               bottom: descBottomOffset, // final konum: resmin altında, her bileşende sabit
               width: "min(1000px, 85vw)",
-              paddingBottom: "2rem",
+              paddingBottom: "3rem",
               ...descStyle,
             }}
           >

@@ -253,7 +253,7 @@ export default function HomePageItem({
             </div>
           </div>
 
-          {/* ✅ DESCRIPTION – resmin ALTINDA, sticky sahnenin içinde, alttan scroll ile kayarak geliyor */}
+          {/* ✅ DESCRIPTION – resmin ALTINDA,--- sticky sahnenin içinde, alttan scroll ile kayarak geliyor */}
           <div
             className="pointer-events-none absolute left-1/2 transform -translate-x-1/2"
             style={{

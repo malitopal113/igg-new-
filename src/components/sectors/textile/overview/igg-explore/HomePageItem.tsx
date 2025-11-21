@@ -259,7 +259,7 @@ export default function HomePageItem({
             style={{
               bottom: descBottomOffset, // final konum: resmin altında, her bileşende sabit
               width: "min(1000px, 85vw)",
-              paddingBottom: "4rem",
+              paddingBottom: "4.5rem",
               ...descStyle,
             }}
           >

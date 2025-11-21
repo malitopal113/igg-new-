@@ -55,7 +55,7 @@ export default function Page() {
                 style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif' }}
               >
                 Our company shows a wide range of products made using both knitting and
-                weaving techniques. Our product lines include:
+                weaving techniques.<br /> Our product lines include:
               </p>
 
               <div

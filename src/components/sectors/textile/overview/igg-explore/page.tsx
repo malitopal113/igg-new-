@@ -33,7 +33,7 @@ export default function Page() {
           leftFinalOffset="58%"
           rightFinalOffset="45%"
           imageOffsetY={-20}
-          descBottomOffset="-10rem"
+          descBottomOffset="-12rem"
           />
           
           <HomePageItem
@@ -47,7 +47,7 @@ export default function Page() {
             imageOffsetY={-20}
             leftFinalOffset="50%"
             rightFinalOffset="52%"
-            descBottomOffset="-13.5rem"
+            descBottomOffset="-15.5rem"
             desc={
             <>
               <p
@@ -102,7 +102,7 @@ export default function Page() {
             imageOffsetY={-20}
             leftFinalOffset="47%"
             rightFinalOffset="55%"
-            descBottomOffset="-13.5rem"
+            descBottomOffset="-15.5rem"
             desc={
             <>
               <p
@@ -174,7 +174,7 @@ export default function Page() {
             leftFinalOffset="50%"
             rightFinalOffset="54%"
             imageOffsetY={-20}
-            descBottomOffset="-11.5rem"
+            descBottomOffset="-13.5rem"
           />
           <div className="pb-[200px] bg-[#000]">
             <HomePageItem
@@ -195,7 +195,7 @@ export default function Page() {
             pinDurationMultiplier={2.8} // mesela 2.0 veya 2.2 deneyebilirsin
             imageTargetScale={1.08}
             imageOffsetY={-20}
-            descBottomOffset="-8.5rem"
+            descBottomOffset="-10.5rem"
           />
   
           </div>

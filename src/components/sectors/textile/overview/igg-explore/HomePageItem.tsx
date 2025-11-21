@@ -19,11 +19,12 @@ interface HomePageItemProps {
   imageOffsetY?: number;      // px
   leftFinalOffset?: string;   // varsayılan "51%"
   rightFinalOffset?: string;  // varsayılan "51%"
+  descBottomOffset?: string;
 }
 
 const clamp = (v: number, min = 0, max = 1) =>
   Math.max(min, Math.min(max, v));
-const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3); // easing
 
 export default function HomePageItem({
   image,
@@ -40,6 +41,7 @@ export default function HomePageItem({
   imageOffsetY,
   leftFinalOffset = "51%",
   rightFinalOffset = "51%",
+  descBottomOffset = "-10rem",
 }: HomePageItemProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
@@ -134,22 +136,23 @@ export default function HomePageItem({
     letterSpacing: "-0.02em",
   };
 
-  /** DESCRIPTION (resmin altında, sticky içinde, alttan gelerek) */
+  /** DESCRIPTION (resmin altında, sticky içinde, alttan kayarak) */
   const descThreshold = 0.55;
   const descProgress = clamp((eased - descThreshold) / (1 - descThreshold));
   const descAnimated = easeOutCubic(descProgress);
 
+  // Başlangıçta daha aşağıda, sonra yukarı kayıyor.
+  const descBaseOffset = 80; // px – istersen 60/100 ile oynayabilirsin
   const descStyle: React.CSSProperties = {
-    opacity: descAnimated,
-    transform: `translateY(${(1 - descAnimated) * 80}px)`, // 👈 daha belirgin alttan gelme
-    transition: "opacity 0s, transform 0s",
+    transform: `translateY(${(1 - descAnimated) * descBaseOffset}px)`,
+    transition: "transform 0s",
   };
 
   return (
     <section
       ref={containerRef}
       className="relative w-full bg-[#000] text-white"
-      style={{ height: "270vh" }}
+      style={{ height: "320vh" }}
     >
       {/* STICKY ANİMASYON ALANI */}
       <div
@@ -164,7 +167,7 @@ export default function HomePageItem({
               style={{
                 width: "900px",
                 maxWidth: "82vw",
-                maxHeight: "52vh", // biraz küçülttük ki description için alan kalsın
+                maxHeight: "52vh",
               }}
             >
               <img
@@ -203,7 +206,7 @@ export default function HomePageItem({
             className="absolute top-1/2 -translate-y-[95%] pointer-events-none"
             style={{
               right: leftFinalOffset,
-              top: `calc(40% + ${offsetY}px)`, 
+              top: `calc(60% + ${offsetY}px)`,
               fontFamily: "var(--font-Work_Sans)",
               fontWeight: 700,
               letterSpacing: "0.09em",
@@ -229,7 +232,7 @@ export default function HomePageItem({
             className="absolute top-1/2 -translate-y-[95%] pointer-events-none"
             style={{
               left: rightFinalOffset,
-              top: `calc(40% + ${offsetY}px)`,
+              top: `calc(60% + ${offsetY}px)`,
               fontFamily: "var(--font-Work_Sans)",
               fontWeight: 700,
               letterSpacing: "0.09em",
@@ -250,12 +253,17 @@ export default function HomePageItem({
             </div>
           </div>
 
-          {/* ✅ DESCRIPTION – resmin ALTINDA, normal flow + alttan giriş */}
+          {/* ✅ DESCRIPTION – resmin ALTINDA, sticky sahnenin içinde, alttan scroll ile kayarak geliyor */}
           <div
-            className="mt-10 md:mt-14 flex justify-center"
-            style={descStyle}
+            className="pointer-events-none absolute left-1/2 transform -translate-x-1/2"
+            style={{
+              bottom: descBottomOffset, // final konum: resmin altında, her bileşende sabit
+              width: "min(1000px, 85vw)",
+              paddingBottom: "2rem",
+              ...descStyle,
+            }}
           >
-            <div className="w-[min(1000px,85vw)] text-center px-6">
+            <div className="pointer-events-auto text-center px-6">
               {desc}
             </div>
           </div>

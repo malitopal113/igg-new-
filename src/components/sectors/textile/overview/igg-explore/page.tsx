@@ -9,7 +9,7 @@ export default function Page() {
         <MainIntro  />
         <HomePageItem
           image="/assets/sectors/textile/explore/1.png"
-          titleLeft="YOUR"
+          titleLeft="OUR"
           titleRight="CAPACITY"
           desc={
             <p
@@ -32,6 +32,8 @@ export default function Page() {
           imageTargetScale={1.08}
           leftFinalOffset="58%"
           rightFinalOffset="45%"
+          imageOffsetY={-20}
+          descBottomOffset="-9rem"
           />
           
           <HomePageItem
@@ -45,6 +47,7 @@ export default function Page() {
             imageOffsetY={-20}
             leftFinalOffset="50%"
             rightFinalOffset="52%"
+            descBottomOffset="-12.5rem"
             desc={
             <>
               <p
@@ -99,6 +102,8 @@ export default function Page() {
             imageOffsetY={-20}
             leftFinalOffset="47%"
             rightFinalOffset="55%"
+            imageOffsetY={-20}
+            descBottomOffset="-12.5rem"
             desc={
             <>
               <p
@@ -169,9 +174,11 @@ export default function Page() {
             imageTargetScale={1.08}
             leftFinalOffset="50%"
             rightFinalOffset="54%"
+            imageOffsetY={-20}
+            descBottomOffset="-10.5rem"
           />
           <div className="pb-[200px] bg-[#000]">
-                      <HomePageItem
+            <HomePageItem
             image="/assets/sectors/textile/explore/5.png"
             titleLeft="BRANDING"
             titleRight="SERVICES"
@@ -188,7 +195,8 @@ export default function Page() {
             titleTranslateX={44}
             pinDurationMultiplier={2.8} // mesela 2.0 veya 2.2 deneyebilirsin
             imageTargetScale={1.08}
-            
+            imageOffsetY={-20}
+            descBottomOffset="-7.5rem"
           />
   
           </div>

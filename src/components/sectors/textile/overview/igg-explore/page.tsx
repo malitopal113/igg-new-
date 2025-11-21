@@ -102,7 +102,6 @@ export default function Page() {
             imageOffsetY={-20}
             leftFinalOffset="47%"
             rightFinalOffset="55%"
-            imageOffsetY={-20}
             descBottomOffset="-12.5rem"
             desc={
             <>

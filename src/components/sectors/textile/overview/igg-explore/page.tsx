@@ -13,7 +13,7 @@ export default function Page() {
           titleRight="CAPACITY"
           desc={
             <p
-              className="leading-[1.45] text-white font-light tracking-[-0.01em] text-[18px] text-justify"
+              className="leading-[1.45] text-white font-light tracking-[-0.01em] text-[18px] "
               style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif' }}
             >
               We provide quality well understood service to our customers with our wide range 
@@ -51,7 +51,7 @@ export default function Page() {
             desc={
             <>
               <p
-                className="mb-6 leading-[1.4] text-white font-light tracking-[-0.01em] text-[18px] text-justify"
+                className="mb-6 leading-[1.4] text-white font-light tracking-[-0.01em] text-[18px] "
                 style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif' }}
               >
                 Our company shows a wide range of products made using both knitting and
@@ -106,7 +106,7 @@ export default function Page() {
             desc={
             <>
               <p
-                className="mb-6 leading-[1.4] text-white font-light tracking-[-0.01em] text-[18px] text-justify"
+                className="mb-6 leading-[1.4] text-white font-light tracking-[-0.01em] text-[18px] "
                 style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif' }}
               >
                 Info always has a solution for challenging projects. We have the ability to apply various printing techniques and embroidery.
@@ -157,7 +157,7 @@ export default function Page() {
             titleRight="ANALYSIS"
             desc={
               <p
-                className="leading-[1.45] text-white font-light tracking-[-0.01em] text-[18px] text-justify "
+                className="leading-[1.45] text-white font-light tracking-[-0.01em] text-[18px]  "
                 style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif' }}
               >
                 At Info Group Global, we’re excited about creativity, technology and all its possibilities in the textile sector. 
@@ -183,7 +183,7 @@ export default function Page() {
             titleRight="SERVICES"
             desc={
               <p
-                className="leading-[1.45] text-white font-light tracking-[-0.01em] text-[18px] text-justify"
+                className="leading-[1.45] text-white font-light tracking-[-0.01em] text-[18px] "
                 style={{ fontFamily: '"Helvetica Neue", Arial, sans-serif' }}
               >
                 We meticulously analyze and understand your unique needs, delivering not just clothing, but industry-specific, functional solutions designed to enhance productivity. 
